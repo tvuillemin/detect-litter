@@ -1,3 +1,6 @@
 __pycache__/
 .mypy_cache/
+build/
+detect_litter.egg-info/
+dist/
 venv/
