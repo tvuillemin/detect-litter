@@ -11,6 +11,12 @@ venv:
 build:
 	python setup.py sdist bdist_wheel
 
+publish.test: build
+	twine upload --repository testpypi dist/*
+
+publish: build
+	twine upload dist/*
+
 clean:
 	rm -rf build dist
 
