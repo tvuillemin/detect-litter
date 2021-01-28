@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import json
 from argparse import ArgumentParser
 from collections import defaultdict
@@ -19,7 +17,10 @@ def main() -> None:
 
     # Run the Git command and process the output
     run(
-        "git fetch -p", check=True, shell=True, cwd=args.repo,
+        "git fetch -p",
+        check=True,
+        shell=True,
+        cwd=args.repo,
     )
     completed_process = run(
         'git for-each-ref --sort=authorname --format "%(authorname) %(refname)"',
@@ -48,7 +49,3 @@ def main() -> None:
     }
 
     print(json.dumps(branch_map, indent=4, ensure_ascii=False))
-
-
-if __name__ == "__main__":
-    main()
